@@ -1,11 +1,11 @@
 class Node:
 
     def __init__(self, value):
-        self.children = []
+        self.edges = []
         self.value = value
 
-    def addChild(self, node):
-        self.children.append(node)
+    def addEdge(self, node):
+        self.edges.append(node)
 
 
 class Graph:
@@ -18,12 +18,12 @@ class Graph:
         for i in range(len(adj_matrix)):
             for j in range(len(adj_matrix)):
                 if adj_matrix[i][j] is not 0:
-                    self.nodes[i].addChild((self.nodes[j], adj_matrix[i][j]))
+                    self.nodes[i].addEdge((self.nodes[j], adj_matrix[i][j]))
 
     def printNodes(self):
         for node in self.nodes:
-            for i in range(len(node.children)):
-                print(f"{node.children[i][0].value} {node.children[i][1]}  ", end="")
+            for i in range(len(node.edges)):
+                print(f"{node.edges[i][0].value} {node.edges[i][1]}  ", end="")
             print("")
 
 
